@@ -1,2 +1,4 @@
 1. git commit -m "comment" - commit all changes 
 2. git push origin main - tell the server
+3. git push origin main - tell the server github
+4. git pull  - to get from the server
