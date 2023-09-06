@@ -84,11 +84,17 @@ with open(budget_data_csv, 'r') as csvfile:
     #print(f"Here first value-> {first_value}")
     
     #function that return the average defined at the beginin 
-    average = average_change(first_value,last_value,Total_months)    
-    print(f"Average Change:  ${average}")
+    #average = average_change(first_value,last_value,Total_months)    
+    #print(f"Average Change:  ${average}")
     #print(aux_list2)
-    #use difference function to calculate the increases and decreases 
+    #use difference function to calculate the average change, increases, and decreases 
     substraction = difference(aux_list1)
+
+    #This calculate the number the net change as the summation of the total 
+    # month-to-month changes in all the rows over the total number of net changes 
+    average = round(sum(substraction)/len(substraction),2)
+    print(f"Average Change:  ${average}")
+
 
     #Using the fuction max to find the maximun value in substraction list 
     Max_ave = max(substraction)
@@ -122,7 +128,7 @@ with open(budget_data_csv, 'r') as csvfile:
     item7 = f"Greatest Decrease in Profits: {aux_list2[index_min + 1]} ({Min_ave})"
 
 #I filled up the list
-    print_out_list = [item1,item2,item3,item4,item5,item6,item7,item7]
+    print_out_list = [item1,item2,item3,item4,item5,item6,item7]
     #print(print_out_list)
  
  #Create a new file to store all the information in Resources/PyBank_Financial_Analysis.txt
